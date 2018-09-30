@@ -124,11 +124,11 @@
             },
             saveRequest() {
                 axios.post("/car", this.searchedCar)
-                    .then(value => {
+                    .then(() => {
                         this.showSnack = true;
                         this.snackText = "Success"
                     })
-                    .catch(reason => {
+                    .catch(() => {
                         this.showSnack = true;
                         this.snackText = "Error"
                     })

@@ -2,5 +2,19 @@ language: node_js
 node_js:
   - "node"
 
+cache:
+  directories:
+  - "node_modules"
+
 script:
   - npm run build
+
+after_success:
+- echo $TAG
+- echo $TRAVIS_COMMIT
+- docker login -u $D_USER -p $D_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export IMAGE_NAME=rabot9ga/carservice-front
+- docker build -t $IMAGE_NAME:$TRAVIS_COMMIT .
+- docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
