@@ -74,7 +74,7 @@
                                                     <v-text-field label="Speed" v-model="searchedCar.performanceFigures.acceleration.mph"/>
                                                 </v-flex>
                                                 <v-flex xs12>
-                                                    <v-text-field label="Speed" v-model="searchedCar.performanceFigures.acceleration.seconds"/>
+                                                    <v-text-field label="Seconds" v-model="searchedCar.performanceFigures.acceleration.seconds"/>
                                                 </v-flex>
                                             </div>
                                         </v-expansion-panel-content>
